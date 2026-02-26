@@ -34,7 +34,7 @@
     <link rel="icon" type="image/x-icon" href="pingaws.ico">
     <link rel="stylesheet" href="style.css">
     <script src="https://l2.io/ip.js?var=userip"></script>
-    <script src="jquery-3.7.1.min.js"></script>
+    <script src="jquery-4.0.0.min.js"></script>
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -484,9 +484,9 @@
             return decodeURIComponent(value);
         }
 
-        $(document).ready(function () {
+        $(function () {
             // Tab Switching Logic
-            $(".tab-btn").click(function () {
+            $(".tab-btn").on("click", function () {
                 var tabId = $(this).data("tab");
 
                 // Remove active class from all buttons and contents
@@ -498,9 +498,9 @@
                 $("#" + tabId).addClass("active");
             });
 
-            $("#pingbutton").click(pingButtonClicked);
+            $("#pingbutton").on("click", pingButtonClicked);
             if (getURLParameter("run")) {
-                $("#pingbutton").click();
+                $("#pingbutton").trigger("click");
             }
         });
 
